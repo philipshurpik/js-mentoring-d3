@@ -55,9 +55,9 @@
     }
 
     function Circle(topLeft) {
-        this.r = Math.floor(Math.random() * 15) + 15;
-        this.cx = !topLeft ? Math.floor(Math.random() * (WIDTH - 200)) + 100 : this.r + 50;
-        this.cy = !topLeft ? Math.floor(Math.random() * (HEIGHT - 200)) + 100 : this.r + 50;
+        this.r = Math.floor(Math.random() * 15) + 10;
+        this.cx = !topLeft ? Math.floor(Math.random() * (WIDTH - 120)) + 100 : this.r + 50;
+        this.cy = !topLeft ? Math.floor(Math.random() * (HEIGHT - 120)) + 100 : this.r + 50;
         this.direction = {
             x: Math.floor(Math.random() * 2) * 2 - 1,
             y: Math.floor(Math.random() * 2) * 2 - 1
@@ -75,7 +75,7 @@
             this.direction.y *= -1;
         }
 
-        this.r *= 0.999;
+        this.r *= 0.9995;
         this.color = this.colorPicker(this.r);
     };
 
