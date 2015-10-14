@@ -35,10 +35,13 @@
             var bar = svg.selectAll('.bar')
                 .data(data);
 
-            bar.exit().remove();
-            bar.enter().append("rect");
-            bar
-                .attr("class", "bar")
+            bar.exit()
+                .remove();
+
+            bar.enter()
+                .append("rect");
+
+            bar.attr("class", "bar")
                 .attr("id", (d) => d.id)
                 .attr("x", (d) => x(d.mentee) )
                 .attr("y", (d) => y(d.mark) )
