@@ -1,6 +1,7 @@
 (function () {
     var HEIGHT = 400, WIDTH = 600;
 
+    Circle.counter = 0;
     var circles = Array.from(new Array(20), () => new Circle());
 
     setInterval(function() {
@@ -37,10 +38,16 @@
             .remove();
 
         selection
+            .attr('id', (circle) => circle.id)
             .attr('r', (circle) => circle.r)
             .attr('cx', (circle) => circle.cx)
             .attr('cy', (circle) => circle.cy)
-            .attr('fill', (circle) => circle.color)
+            .attr('fill', (circle) => circle.color);
+
+        selection
+            .on('click', function() {
+                circles.find((circle) => circle.id === +this.id).die();
+            })
     }
 
     function findColission(circle, i, array) {
@@ -55,6 +62,7 @@
     }
 
     function Circle(topLeft) {
+        this.id = Circle.counter++;
         this.r = Math.floor(Math.random() * 15) + 10;
         this.cx = !topLeft ? Math.floor(Math.random() * (WIDTH - 120)) + 100 : this.r + 50;
         this.cy = !topLeft ? Math.floor(Math.random() * (HEIGHT - 120)) + 100 : this.r + 50;
