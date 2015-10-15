@@ -21,15 +21,15 @@
 </style>
 
 <body>
-<svg width="800" height="600">
-    <g class="tree" transform="translate(150, 20)"></g>
+<svg width="500" height="450">
+    <g class="tree" transform="translate(00, 20)"></g>
 </svg>
 
 <script src="d3.js"></script>
 <script>
     // Tree layout
     var treeLayout = d3.layout.tree()
-            .size([600, 400]);
+            .size([500, 400]);
 
     d3.json('data/tree.json', function(err, data) {
         var nodes = treeLayout(data);
